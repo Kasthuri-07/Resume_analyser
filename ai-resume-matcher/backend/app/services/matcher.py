@@ -1,6 +1,8 @@
 import os
-os.environ["HF_HUB_OFFLINE"] = "1"
-os.environ["TRANSFORMERS_OFFLINE"] = "1"
+# Optional offline mode toggle via environment variable
+if os.environ.get("FORCE_OFFLINE") == "1":
+    os.environ["HF_HUB_OFFLINE"] = "1"
+    os.environ["TRANSFORMERS_OFFLINE"] = "1"
 import numpy as np
 from typing import Dict, Any, List, Tuple
 from sklearn.metrics.pairwise import cosine_similarity
