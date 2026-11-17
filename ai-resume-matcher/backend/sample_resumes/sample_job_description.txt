@@ -1,0 +1,29 @@
+JOB TITLE: Senior AI & Full-Stack Engineer
+COMPANY: Apex Global AI Solutions
+LOCATION: Remote / Hybrid
+
+ABOUT THE ROLE:
+Apex Global AI is looking for an exceptional Senior AI & Full-Stack Engineer to architect intelligent, data-driven applications. You will spearhead the development of our next-generation NLP platforms, combining state-of-the-art machine learning models with resilient microservice backends and responsive frontend interfaces.
+
+KEY RESPONSIBILITIES:
+- Design and scale production-ready AI/NLP services and REST APIs with FastAPI.
+- Implement modern frontend user interfaces with React and Tailwind CSS.
+- Fine-tune deep learning and transformer models for enterprise intelligent document processing.
+- Containerize microservices using Docker and orchestrate on cloud infrastructure.
+- Collaborate with product managers and architects on high-performance database schema design.
+- Optimize model inference latency and ensure high availability across multi-tenant deployments.
+
+REQUIRED QUALIFICATIONS & SKILLS:
+- Bachelor's or Master's degree in Computer Science, Data Science, or related quantitative discipline.
+- 3+ years of professional software engineering and AI/ML development experience.
+- Deep proficiency in Python and modern backend frameworks (FastAPI or Flask).
+- Strong foundation in Machine Learning, PyTorch, and Natural Language Processing (NLP).
+- Hands-on experience developing web frontends with React.js and modern JavaScript/TypeScript.
+- Solid experience with relational databases (SQL, PostgreSQL, MySQL) and database optimization.
+- Proficiency in containerization with Docker and standard Git development workflows.
+
+PREFERRED / GOOD TO HAVE:
+- Experience with Transformers, Hugging Face, or LLM fine-tuning pipelines.
+- Hands-on exposure to cloud deployments on AWS or GCP.
+- Familiarity with Kubernetes, Redis caching, and CI/CD pipelines (GitHub Actions).
+- Proven track record of delivering end-to-end AI applications into enterprise production.

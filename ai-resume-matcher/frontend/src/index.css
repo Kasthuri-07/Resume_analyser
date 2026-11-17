@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-csl-bg text-csl-text antialiased font-sans selection:bg-csl-blue/15 selection:text-csl-deep-blue;
+    background-color: #FCFAF5;
+    color: #111111;
+  }
+}
+
+/* Creator Space Lab Signature Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FCFAF5;
+}
+::-webkit-scrollbar-thumb {
+  background: #E5E0D4;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C4BCAC;
+}
+
+/* Creator Space Lab Floating Card */
+.csl-card {
+  @apply bg-white/95 backdrop-blur-sm rounded-2xl border border-[#F5B83D]/30 shadow-csl-card transition-all duration-300;
+}
+.csl-card:hover {
+  @apply -translate-y-1 bg-white border-[#1455B8]/60 shadow-csl-card-hover;
+}
+
+/* Creator Space Lab Signature Blue Box */
+.csl-box-blue {
+  @apply bg-gradient-to-r from-csl-deep-blue to-csl-blue text-white rounded-2xl shadow-csl-blue border border-white/15 transition-all duration-300;
+}
+.csl-box-blue:hover {
+  @apply -translate-y-1 shadow-2xl;
+}
+
+/* Creator Space Lab Primary Action Button */
+.csl-btn-primary {
+  @apply inline-flex items-center justify-center gap-2 bg-gradient-to-r from-csl-deep-blue to-csl-blue text-white px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-transform hover:scale-105 hover:shadow-lg hover:shadow-csl-blue/25 active:scale-95 shadow-sm cursor-pointer;
+}
+
+/* Creator Space Lab Gold Accent Button */
+.csl-btn-gold {
+  @apply inline-flex items-center justify-center gap-2 bg-csl-gold text-csl-text px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-transform hover:scale-105 hover:shadow-csl-gold active:scale-95 shadow-sm cursor-pointer;
+}

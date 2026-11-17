@@ -1,0 +1,34 @@
+{
+  "title": "Senior AI & Full-Stack Engineer",
+  "company": "Apex Global AI Solutions",
+  "required_experience_years": 3.0,
+  "required_skills": [
+    "Python",
+    "FastAPI",
+    "Machine Learning",
+    "PyTorch",
+    "Natural Language Processing (NLP)",
+    "React.js",
+    "SQL",
+    "Docker"
+  ],
+  "preferred_skills": [
+    "Kubernetes",
+    "AWS",
+    "Transformers",
+    "PostgreSQL",
+    "CI/CD",
+    "Redis"
+  ],
+  "required_education": [
+    "Bachelor's or Master's degree in Computer Science, AI, Engineering, or related technical field"
+  ],
+  "responsibilities": [
+    "Design and scale production-ready AI/NLP services and REST APIs with FastAPI.",
+    "Implement modern frontend user interfaces with React and Tailwind CSS.",
+    "Fine-tune deep learning and transformer models for enterprise intelligent document processing.",
+    "Containerize microservices using Docker and orchestrate on cloud infrastructure.",
+    "Collaborate with product managers and architects on high-performance database schema design."
+  ],
+  "raw_text": "JOB TITLE: Senior AI & Full-Stack Engineer\nCOMPANY: Apex Global AI Solutions\nLOCATION: Remote / Hybrid\n\nABOUT THE ROLE:\nApex Global AI is looking for an exceptional Senior AI & Full-Stack Engineer to architect intelligent, data-driven applications. You will spearhead the development of our next-generation NLP platforms, combining state-of-the-art machine learning models with resilient microservice backends and responsive frontend interfaces.\n\nKEY RESPONSIBILITIES:\n- Design and scale production-ready AI/NLP services and REST APIs with FastAPI.\n- Implement modern frontend user interfaces with React and Tailwind CSS.\n- Fine-tune deep learning and transformer models for enterprise intelligent document processing.\n- Containerize microservices using Docker and orchestrate on cloud infrastructure.\n- Collaborate with product managers and architects on high-performance database schema design.\n- Optimize model inference latency and ensure high availability across multi-tenant deployments.\n\nREQUIRED QUALIFICATIONS & SKILLS:\n- Bachelor's or Master's degree in Computer Science, Data Science, or related quantitative discipline.\n- 3+ years of professional software engineering and AI/ML development experience.\n- Deep proficiency in Python and modern backend frameworks (FastAPI or Flask).\n- Strong foundation in Machine Learning, PyTorch, and Natural Language Processing (NLP).\n- Hands-on experience developing web frontends with React.js and modern JavaScript/TypeScript.\n- Solid experience with relational databases (SQL, PostgreSQL, MySQL) and database optimization.\n- Proficiency in containerization with Docker and standard Git development workflows.\n\nPREFERRED / GOOD TO HAVE:\n- Experience with Transformers, Hugging Face, or LLM fine-tuning pipelines.\n- Hands-on exposure to cloud deployments on AWS or GCP.\n- Familiarity with Kubernetes, Redis caching, and CI/CD pipelines (GitHub Actions).\n- Proven track record of delivering end-to-end AI applications into enterprise production."
+}
