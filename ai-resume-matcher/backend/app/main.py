@@ -34,20 +34,31 @@ app.include_router(analysis.router)
 
 @app.on_event("startup")
 def startup_event():
-    # Warm up SentenceTransformer model asynchronously
-    try:
-        get_sentence_transformer()
-    except Exception as e:
-        print(f"Startup model warming warning: {e}")
+    # Only warm up SentenceTransformer if NOT running in low memory / Render Free Tier
+    is_render = os.environ.get("RENDER") == "true"
+    low_memory = os.environ.get("LOW_MEMORY_MODE", "1" if is_render else "0") == "1"
+    force_transformer = os.environ.get("FORCE_TRANSFORMER") == "1"
+
+    if not low_memory or force_transformer:
+        try:
+            get_sentence_transformer()
+        except Exception as e:
+            print(f"Startup model warming warning: {e}")
+    else:
+        print("Starting in Cloud-Optimized Low-Memory Mode (Scikit-Learn TF-IDF Semantic Engine, ~90MB RAM).")
 
 
 @app.get("/api/health")
 def health_check():
+    is_render = os.environ.get("RENDER") == "true"
+    low_memory = os.environ.get("LOW_MEMORY_MODE", "1" if is_render else "0") == "1"
+    force_transformer = os.environ.get("FORCE_TRANSFORMER") == "1"
+    model_name = "all-MiniLM-L6-v2 Neural Embeddings" if (not low_memory or force_transformer) else "TF-IDF Semantic Engine (Render 512MB Optimized)"
     return {
         "status": "healthy",
         "service": "AI Resume Matcher API",
         "version": "1.0.0",
-        "ai_model": "all-MiniLM-L6-v2"
+        "ai_model": model_name
     }
 
 

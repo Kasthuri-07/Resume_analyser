@@ -12,7 +12,8 @@ from datetime import datetime
 try:
     import spacy
     try:
-        nlp = spacy.load("en_core_web_sm")
+        # Load lightweight NER pipeline, disabling heavy parser and lemmatizer to save RAM
+        nlp = spacy.load("en_core_web_sm", disable=["parser", "attribute_ruler", "lemmatizer"])
     except Exception:
         nlp = spacy.blank("en")
 except Exception:

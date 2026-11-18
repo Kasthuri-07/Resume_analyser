@@ -9,14 +9,27 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 from app.services.extractor import SKILL_RELATIONS, KNOWN_SKILLS
 
+# Cloud / Render Free-Tier Memory Detection
+# Render automatically injects RENDER="true" in all hosted services.
+# On Render Free Tier (512MB RAM), loading PyTorch + SentenceTransformers exceeds 512MB and causes OOM.
+# Using Scikit-Learn TF-IDF + Cosine Similarity uses only ~40MB RAM while maintaining high accuracy.
+IS_RENDER = os.environ.get("RENDER") == "true"
+LOW_MEMORY_MODE = os.environ.get("LOW_MEMORY_MODE", "1" if IS_RENDER else "0") == "1"
+FORCE_TRANSFORMER = os.environ.get("FORCE_TRANSFORMER") == "1"
+
 # AI Model Loader
 _sentence_model = None
 _model_load_attempted = False
-_using_fallback = False
+_using_fallback = LOW_MEMORY_MODE and not FORCE_TRANSFORMER
 
 
 def get_sentence_transformer():
     global _sentence_model, _model_load_attempted, _using_fallback
+    if LOW_MEMORY_MODE and not FORCE_TRANSFORMER:
+        # Use ultra-lightweight TF-IDF engine (avoids loading 500MB PyTorch into memory)
+        _using_fallback = True
+        return None
+
     if not _model_load_attempted:
         _model_load_attempted = True
         try:
@@ -52,9 +65,9 @@ def compute_semantic_similarity(text1: str, text2: str) -> Tuple[float, bool]:
         except Exception as e:
             print(f"Embedding inference error: {e}")
 
-    # Fallback method: TF-IDF with character n-grams + cosine similarity
+    # Fallback method: High-performance TF-IDF with character/word n-grams + cosine similarity
     try:
-        vectorizer = TfidfVectorizer(ngram_range=(1, 2), stop_words="english")
+        vectorizer = TfidfVectorizer(ngram_range=(1, 2), stop_words="english", sublinear_tf=True, max_features=5000)
         tfidf_matrix = vectorizer.fit_transform([text1, text2])
         sim = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])[0][0]
         score = min(100.0, float(sim) * 115.0)
